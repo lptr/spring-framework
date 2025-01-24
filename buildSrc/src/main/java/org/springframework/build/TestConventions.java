@@ -52,7 +52,7 @@ class TestConventions {
 	private void configureTests(Project project, Test test) {
 		test.useJUnitPlatform();
 		test.include("**/*Tests.class", "**/*Test.class");
-		test.setSystemProperties(Map.of(
+		test.getSystemProperties().putAll(Map.of(
 				"java.awt.headless", "true",
 				"io.netty.leakDetection.level", "paranoid",
 				"io.netty5.leakDetectionLevel", "paranoid",

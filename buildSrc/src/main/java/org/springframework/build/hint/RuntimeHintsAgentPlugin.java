@@ -59,8 +59,8 @@ public class RuntimeHintsAgentPlugin implements Plugin<Project> {
 				test.include("**/*Tests.class", "**/*Test.class");
 				test.systemProperty("java.awt.headless", "true");
 				test.systemProperty("org.graalvm.nativeimage.imagecode", "runtime");
-				test.setTestClassesDirs(jvmTestSuite.getSources().getOutput().getClassesDirs());
-				test.setClasspath(jvmTestSuite.getSources().getRuntimeClasspath());
+				test.getTestClassesDirs().setFrom(jvmTestSuite.getSources().getOutput().getClassesDirs());
+				test.getClasspath().setFrom(jvmTestSuite.getSources().getRuntimeClasspath());
 				test.getJvmArgumentProviders().add(createRuntimeHintsAgentArgumentProvider(project, agentExtension));
 			});
 			project.getTasks().getByName("check", task -> task.dependsOn(agentTest));

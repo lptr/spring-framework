@@ -76,7 +76,7 @@ javadoc {
 	options.header = project.name
 	options.use = true
 	options.links(project.ext.javadocLinks)
-	options.setOutputLevel(JavadocOutputLevel.QUIET)
+	options.outputLevel = JavadocOutputLevel.QUIET
 	// Check for syntax during linting.
 	options.addBooleanOption("Xdoclint:syntax", true)
 

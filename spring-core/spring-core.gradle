@@ -132,9 +132,9 @@ test {
 
 	// Ensure that BlockHound tests run on JDK 13+. For details, see:
 	// https://github.com/reactor/BlockHound/issues/33
-	jvmArgs += [
+	jvmArgs.addAll([
 		"-XX:+AllowRedefinitionToAddDeleteMethods"
-	]
+	])
 }
 
 sourcesJar {
