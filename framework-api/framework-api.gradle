@@ -36,11 +36,11 @@ javadoc {
 	}
 	maxMemory = "1024m"
 	doFirst {
-		classpath += files(
+		classpath.from(files(
 				// ensure the javadoc process can resolve types compiled from .aj sources
 				project(":spring-aspects").sourceSets.main.output
-		)
-		classpath += files(moduleProjects.collect { it.sourceSets.main.compileClasspath })
+		))
+		classpath.from(files(moduleProjects.collect { it.sourceSets.main.compileClasspath }))
 	}
 }
 
